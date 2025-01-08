@@ -1,4 +1,4 @@
-# Bitwarden Valut Backup （Bitwarden 密码库定时备份）
+# Bitwarden Vault Backup （Bitwarden 密码库定时备份）
 
  [🇨🇳 简体中文](#中文)  |  [🇺🇸 English](#english) 
 
