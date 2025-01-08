@@ -34,7 +34,7 @@ A Docker-based automated backup solution for Bitwarden vault. It supports encryp
 | BACKUP_ENCRYPTION_KEY | GPG encryption key            | Yes      | -              |
 | BACKUP_FORMAT         | Export format (json/csv)      | No       | json           |
 | BACKUP_RETENTION_DAYS | Days to keep backups          | No       | 7              |
-| BACKUP_SCHEDULE       | Backup schedule (cron format) | No       | _/3 _ \* \* \* |
+| BACKUP_SCHEDULE       | Backup schedule (cron format) | No       | 0 */8 * * *    |
 | AUTO_DECRYPT          | Keep unencrypted files        | No       | false          |
 
 ### Deployment
@@ -50,8 +50,8 @@ docker run -d \
   -e BACKUP_FORMAT=json \
   -e BACKUP_RETENTION_DAYS=7 \
   -e AUTO_DECRYPT=false \
-  -v /path/to/backups:/backups \
-  bitwarden-backup:latest
+  -v /path/to/backup:/backup \
+  gangz1o/bitwarden-backup:latest
 ```
 
 #### Using Docker Compose
@@ -112,7 +112,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 | BACKUP_ENCRYPTION_KEY | GPG 加密密钥          | 是   | -              |
 | BACKUP_FORMAT         | 导出格式（json/csv）  | 否   | json           |
 | BACKUP_RETENTION_DAYS | 备份保留天数          | 否   | 7              |
-| BACKUP_SCHEDULE       | 备份计划（cron 格式） | 否   | _/3 _ \* \* \* |
+| BACKUP_SCHEDULE       | 备份计划（cron 格式） | 否   | 0 */8 * * *    |
 | AUTO_DECRYPT          | 保留未加密文件        | 否   | false          |
 
 ### 部署方式
@@ -128,8 +128,8 @@ docker run -d \
   -e BACKUP_FORMAT=json \
   -e BACKUP_RETENTION_DAYS=7 \
   -e AUTO_DECRYPT=false \
-  -v /path/to/backups:/backups \
-  bitwarden-backup:latest
+  -v /path/to/backup:/backup \
+  gangz1o/bitwarden-backup:latest
 ```
 
 #### 使用 Docker Compose

@@ -62,7 +62,7 @@ check_environment() {
 
 # 初始化变量
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-BACKUP_DIR=${BACKUP_DIR:-/backups}
+BACKUP_DIR=${BACKUP_DIR:-/backup}
 BACKUP_FILE="$BACKUP_DIR/bitwarden_export_$TIMESTAMP.$BACKUP_FORMAT"
 ENCRYPTED_FILE="$BACKUP_FILE.gpg"
 
