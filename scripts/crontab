@@ -1,0 +1,6 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+BASH_ENV=/container.env
+
+# Redirect stdout and stderr to syslog
+*/3 * * * * /usr/local/bin/backup.sh >> /var/log/cron.log 2>&1

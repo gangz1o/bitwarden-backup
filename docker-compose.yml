@@ -1,0 +1,17 @@
+version: '3'
+services:
+  bitwarden-backup:
+    build: .
+    container_name: bitwarden-backup # 指定固定的容器名称
+    environment:
+      - BW_HOST=${BW_HOST}
+      - BW_EMAIL=${BW_EMAIL}
+      - BW_PASSWORD=${BW_PASSWORD}
+      - BACKUP_ENCRYPTION_KEY=${BACKUP_ENCRYPTION_KEY}
+      - BACKUP_SCHEDULE=*/3 * * * *
+      - AUTO_DECRYPT=${AUTO_DECRYPT:-false}
+      - BACKUP_RETENTION_DAYS=${BACKUP_RETENTION_DAYS:-7}
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./backups:/backups
+    restart: unless-stopped
