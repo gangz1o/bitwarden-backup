@@ -74,7 +74,7 @@ services:
       - BACKUP_RETENTION_DAYS=7
       - TZ=Asia/Shanghai
     volumes:
-      - ./backup:/backup
+      - /path/to/backup:/backup
     restart: unless-stopped
 ```
 
@@ -157,7 +157,7 @@ services:
       - BACKUP_RETENTION_DAYS=7
       - TZ=Asia/Shanghai
     volumes:
-      - ./backup:/backup
+      - /path/to/backup:/backup
     restart: unless-stopped
 ```
 
