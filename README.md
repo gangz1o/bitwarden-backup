@@ -43,11 +43,12 @@
 
 ```bash
 docker run -d \
+  --restart unless-stopped \
   -e BW_HOST=https://your-bitwarden-server \
   -e BW_EMAIL=your-email@example.com \
   -e BW_PASSWORD=your-password \
   -e BACKUP_ENCRYPTION_KEY=your-encryption-key \
-  -e BACKUP_SCHEDULE=0 */8 * * * \
+  -e BACKUP_SCHEDULE="0 */8 * * *" \
   -e BACKUP_FORMAT=json \
   -e BACKUP_RETENTION_DAYS=7 \
   -e AUTO_DECRYPT=false \
@@ -125,6 +126,7 @@ A Docker-based automated backup solution for Bitwarden vault. It supports encryp
 
 ```bash
 docker run -d \
+  --restart unless-stopped \
   -e BW_HOST=https://your-bitwarden-server \
   -e BW_EMAIL=your-email@example.com \
   -e BW_PASSWORD=your-password \
@@ -150,7 +152,7 @@ services:
       - BW_EMAIL=your-email@example.com
       - BW_PASSWORD=your-password
       - BACKUP_ENCRYPTION_KEY=your-encryption-key
-      - BACKUP_SCHEDULE=0 */8 * * *
+      - BACKUP_SCHEDULE="0 */8 * * *"
       - AUTO_DECRYPT=false
       - BACKUP_RETENTION_DAYS=7
       - TZ=Asia/Shanghai
